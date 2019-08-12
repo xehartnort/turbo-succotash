@@ -1,9 +1,10 @@
 <template>
-  <v-list-tile>
-    <v-list-tile-content>
-      <v-list-tile-title :class="{selected: doc.selected}">{{ doc.filename }}</v-list-tile-title>
-    </v-list-tile-content>
-  </v-list-tile>
+  <v-list-item>
+    <v-list-item-content>
+      <v-list-item-title :class="{selected: doc.selected}">{{ doc.filename }}</v-list-item-title>
+      <v-list-item-subtitle>{{ doc.description }}</v-list-item-subtitle>
+    </v-list-item-content>
+  </v-list-item>
 </template>
 
 <script>

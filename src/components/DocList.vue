@@ -9,7 +9,7 @@ import Doc from "@/components/Doc.vue";
 
 export default {
   name: "doc-list",
-  componets: {
+  components: {
     Doc
   },
   props: {
