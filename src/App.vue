@@ -1,5 +1,8 @@
 <template>
   <v-app>
+    
+      
+    
     <v-toolbar app>
       <v-toolbar-title>Gestor de exámenes</v-toolbar-title>
       <v-spacer />
@@ -7,22 +10,45 @@
       La idea es habilitar o quitar el modo oscuro
       -->
       <v-toolbar-items>
-        <v-btn icon>
-          <v-icon>mdi-plus-circle</v-icon>
-        </v-btn>
-        <v-btn icon>
-          <v-icon>mdi-information</v-icon>
-        </v-btn>
+        <v-dialog v-model="dialog" persistent>
+          <template v-slot:activator="{ on }">
+            <v-btn icon v-on="on">
+              <v-icon>mdi-plus-circle</v-icon>
+            </v-btn>
+          </template>
+          <v-card>
+            <v-card-title>
+              Subir documentos
+            </v-card-title>
+            <v-card-text>
+              Textooooo, notar que falta añadir un botón para cerrar este diálogo si se añade la propiedad persistent
+            </v-card-text>
+          </v-card>
+        </v-dialog>
+
+        <v-dialog v-model="dialog2" persistent>
+          <template v-slot:activator="{ on }">
+            <v-btn icon v-on="on">
+              <v-icon>mdi-information</v-icon>
+            </v-btn>
+          </template>
+          <v-card>
+            <v-card-title>
+              Ayuda
+            </v-card-title>
+            <v-card-text>
+              Textooooo, notar que falta añadir un botón para cerrar este diálogo  si se añade la propiedad persistent
+            </v-card-text>
+          </v-card>
+        </v-dialog>
       </v-toolbar-items>
     </v-toolbar>
 
     <v-content>
-        <v-card>
-          <v-card-title primary-title>
-            Resultados
-          </v-card-title>
-          <doc-list :docs="docs"/>
-        </v-card>
+      <v-card>
+        <v-card-title primary-title>Resultados</v-card-title>
+        <doc-list :docs="docs" />
+      </v-card>
     </v-content>
 
     <v-footer :fixed="fixed" app>
@@ -37,7 +63,7 @@ import DocList from "@/components/DocList.vue";
 export default {
   name: "App",
   components: {
-    DocList,
+    DocList
   },
   data() {
     return {
