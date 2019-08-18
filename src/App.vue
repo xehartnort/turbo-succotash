@@ -1,46 +1,20 @@
 <template>
   <v-app>
-    
-      
-    
-    <v-toolbar app>
+    <v-toolbar max-height="64px" app>
       <v-toolbar-title>Gestor de exámenes</v-toolbar-title>
       <v-spacer />
       <!--<v-switch v-model="subheader" class="ma-2" label="Subheader"></v-switch>
       La idea es habilitar o quitar el modo oscuro
       -->
       <v-toolbar-items>
-        <v-dialog v-model="dialog" persistent>
-          <template v-slot:activator="{ on }">
-            <v-btn icon v-on="on">
-              <v-icon>mdi-plus-circle</v-icon>
-            </v-btn>
-          </template>
-          <v-card>
-            <v-card-title>
-              Subir documentos
-            </v-card-title>
-            <v-card-text>
-              Textooooo, notar que falta añadir un botón para cerrar este diálogo si se añade la propiedad persistent
-            </v-card-text>
-          </v-card>
-        </v-dialog>
-
-        <v-dialog v-model="dialog2" persistent>
-          <template v-slot:activator="{ on }">
-            <v-btn icon v-on="on">
-              <v-icon>mdi-information</v-icon>
-            </v-btn>
-          </template>
-          <v-card>
-            <v-card-title>
-              Ayuda
-            </v-card-title>
-            <v-card-text>
-              Textooooo, notar que falta añadir un botón para cerrar este diálogo  si se añade la propiedad persistent
-            </v-card-text>
-          </v-card>
-        </v-dialog>
+        <uploader
+          title="Añadir documentos"
+          text="Las subidas están limitadas a 3 documentos por usuario y día"
+        />
+        <about
+          title="Sobre nosotros"
+          text="Este texto es de prueba, quizás estaría chachi que el sobre nosotros estuviera al final??? y esto fuera una zona donde se describe como se usa la aplicación"
+        />
       </v-toolbar-items>
     </v-toolbar>
 
@@ -59,11 +33,15 @@
 
 <script>
 import DocList from "@/components/DocList.vue";
+import Uploader from "@/components/Uploader.vue";
+import About from "@/components/About.vue";
 
 export default {
   name: "App",
   components: {
-    DocList
+    DocList,
+    Uploader,
+    About
   },
   data() {
     return {
